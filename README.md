@@ -52,7 +52,52 @@ Send email notifications for upcoming appointments
 
 -----------------------------------------------------DATABASE CONNECTION---------------------------------------------------
 
+create database hospital;
+ use hospital;
+ create table patients(
+    -> id INT AUTO_INCREMENT PRIMARY KEY,
+    -> name VARCHAR(255) NOT NULL,
+    -> age INT NOT NULL,
+    -> gender VARCHAR(10) NOT NULL
+    -> );
+	
+	 CREATE TABLE DOCTORS(
+    -> id INT AUTO_INCREMENT PRIMARY KEY,
+    -> name VARCHAR(255) NOT NULL,
+    -> specialization VARCHAR(255) NOT NULL
+    -> );
+	
+	  CREATE TABLE IF NOT EXISTS appointments (
+    ->     appointment_id INT AUTO_INCREMENT PRIMARY KEY,
+    ->     patient_id INT NOT NULL,
+    ->     doctor_id INT NOT NULL,
+    ->     appointment_date DATE NOT NULL
+    -> );
+	
+	show tables;
++--------------------+
+| Tables_in_hospital |
++--------------------+
+| appointments       |
+| doctors            |
+| patients           |
++--------------------+
 
+
+INSERT INTO DOCTORS(name,specialization)VALUES("pankaj Jain","Physician");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO DOCTORS(name,specialization)VALUES("Harshit Amod","NeuroSurgeon");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from doctors;
++----+--------------+----------------+
+| id | name         | specialization |
++----+--------------+----------------+
+|  1 | pankaj Jain  | Physician      |
+|  2 | Harshit Amod | NeuroSurgeon   |
++----+--------------+----------------+
+2 rows in set (0.00 sec)
 
 
 
